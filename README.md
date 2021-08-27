@@ -1,2 +1,2 @@
 # SAELK
-simple standalone ELK with xpack
+simple standalone ELK with xpack build notes
