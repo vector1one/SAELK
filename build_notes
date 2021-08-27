@@ -1,0 +1,107 @@
+Single node Elasticsearch build
+D145
+
+1. download from repo
+2. config elastic/kibana
+3. config xpack
+4.
+5.profit 
+
+
+Install elastic/kibana
+nano /etc/yum.repos.d/elasticsearch.repo
+
+-copy paste 
+
+[elasticsearch]
+name=Elasticsearch repository for 7.x packages
+baseurl=https://artifacts.elastic.co/packages/7.x/yum
+gpgcheck=1
+gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+enabled=0
+autorefresh=1
+type=rpm-md
+
+nano /etc/yum.repos.d/kibana
+
+-copy paste 
+
+[kibana-7.x]
+name=Kibana repository for 7.x packages
+baseurl=https://artifacts.elastic.co/packages/7.x/yum
+gpgcheck=1
+gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+autorefresh=1
+type=rpm-md
+
+
+
+core system install:
+	sudo yum install --enablerepo=elasticsearch
+	yum install elasticsearch
+	yum install kibana
+	yum install logstash
+enable:
+	systemctl enable elasticsearch.service
+	systemctl enable kibana.service
+	systemctl enable logstash.service
+
+start services:
+	systemctl start elasticsearch.service kibana.service vice logstash.service 
+
+Optional
+	yum install metricbeat
+	systemctl enable metricbeat.service
+	systemctl enable metricbeat.service
+	metricbeat setup -e 
+
+Configure Elastic
+
+nano /etc/elasticsearch/elasticsearch.yml 
+--uncomment the IP addrs and change localhost to 0.0.0.0
+	elastic--network.host: "0.0.0.0"
+-add disco type to elastic
+	echo "discovery.type: single-node" >> /etc/elasticsearch/elasticsearch.yml
+-add xpack – enable username/passwd in elastic
+	echo “xpack.security.enabled: true” >> /etc/elasticsearch/elasticsearch.yml
+
+Configure Elastic
+nano /etc/kibana/kibana.yml 
+edit server host
+	kibana--server.host: "0.0.0.0"
+add xpack
+	echo ““elasticsearch.username: "kibana_system"”>>/etc/kibana/kibana.yml
+	
+
+
+
+Configure xpack
+xpack
+
+Config elastic for xpack
+
+---set up username passwds
+/usr/share/elasticsearch/bin/elasticsearch-setup-passwords interactive
+use the username “kibana”
+use the default passwords for each prompt 
+After you set a password for the elastic user, you cannot run the elasticsearch-setup-passwords command a second time.
+
+Config Kibana with elastic
+Configure Kibana to connect to Elasticsearch with a password
+When the Elasticsearch security features are enabled, users must log in to Kibana with a valid username and password.
+You’ll configure Kibana to use the built-in “kibana_system” user and the password that you created earlier. Kibana performs some background tasks that require use of the kibana_system user.
+    1. From the directory where you installed Kibana, run the following commands to create the Kibana keystore and add the secure settings:
+        a. Create the Kibana keystore:
+           ./bin/kibana-keystore create
+        b. Add the password for the kibana_system user to the Kibana keystore:
+           ./bin/kibana-keystore add elasticsearch.password
+When prompted, enter the password for the kibana_system user.
+
+-edit firewall
+firewall-cmd --permanent --zone=public --add-port=(port you want)/tcp
+
+reboot
+localhost:5601
+u=elastic
+p=dfault
