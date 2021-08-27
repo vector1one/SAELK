@@ -1,2 +1,2 @@
 # SAELK
-simple stand alont ELK with xpack
+simple standalone ELK with xpack
