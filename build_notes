@@ -73,7 +73,13 @@ edit server host
 add xpack
 	echo ““elasticsearch.username: "kibana_system"”>>/etc/kibana/kibana.yml
 	
+add endpoint once xpack in config for elasticsearch
 
+	elasticsearch.yml
+	xpack.security.enabled
+
+	kibana.yml
+	xpack.encryptedSavedObjects.encryptionKey: '32 characters string'
 
 
 Configure xpack
