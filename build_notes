@@ -92,6 +92,9 @@ kibanaSet
 	xpack.fleet.agents.tlsCheckDisabled: true 
 			
 	
+IOT get agents to enroll in fleet and Security you will ahve to make edits to the global fleet setting in GUI
+GUI> Hamburger> fleet > settings(top right, COG) > add server host IP to global output kibana/elasticsearch	
+	
 Configure xpack
 xpack
 
