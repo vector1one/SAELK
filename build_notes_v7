@@ -77,6 +77,8 @@ elasticsearch.username: "kibana_system"
 xpack.security.enabled
 xpack.encryptedSavedObjects.encryptionKey: '32 characters string'
 
+ex: 'reverse the polarity on the main deflector dish'
+
 =============================================================================================
 
 	
