@@ -56,41 +56,26 @@ Optional
 	systemctl enable metricbeat.service
 	metricbeat setup -e 
 
-Configure Elastic
+this will configure API, logins and security
 
-nano /etc/elasticsearch/elasticsearch.yml 
---uncomment the IP addrs and change localhost to 0.0.0.0
-	elastic--network.host: "0.0.0.0"
--add disco type to elastic
-	echo "discovery.type: single-node" >> /etc/elasticsearch/elasticsearch.yml
--add xpack – enable username/passwd in elastic
-	echo “xpack.security.enabled: true” >> /etc/elasticsearch/elasticsearch.yml
+=========================================================================================
 
-Configure Elastic
-nano /etc/kibana/kibana.yml 
-edit server host
-	kibana--server.host: "0.0.0.0"
-add xpack
-	echo ““elasticsearch.username: "kibana_system"”>>/etc/kibana/kibana.yml
-	
-add endpoint once xpack in config for elasticsearch
+	Config Elastic
+		discovery.type: single-node
+		xpack.security.enabled: true
+		xpack.security.authc.api_key.enabled: true
 
-	elasticsearch.yml
-	xpack.security.enabled
 
-	kibana.yml
-	xpack.encryptedSavedObjects.encryptionKey: '32 characters string'
-	
-	
-For agent deployment add the fol
-elasticsearch.yml
-	xpack.security.authc.api_key.enabled: true
-	
-kibanaSet 
-	xpack.security.enabled: true 
-		For development purposes, you can disable TLS(opens in a new tab or window) by setting as an unsafe alternative.	
-	xpack.fleet.agents.tlsCheckDisabled: true 
-			
+
+
+	Config Kibana
+		network.host: "0.0.0.0"
+		elasticsearch.username: "kibana_system"
+		xpack.security.enabled
+		xpack.encryptedSavedObjects.encryptionKey: '32 characters string'
+
+=============================================================================================
+
 	
 IOT get agents to enroll in fleet and Security you will ahve to make edits to the global fleet setting in GUI
 GUI> Hamburger> fleet > settings(top right, COG) > add server host IP to global output kibana/elasticsearch	
