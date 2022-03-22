@@ -61,19 +61,21 @@ this will configure API, logins and security
 =========================================================================================
 
 	Config Elastic
-		network.host: 0.0.0.0
-		discovery.type: single-node
-		xpack.security.enabled: true
-		xpack.security.authc.api_key.enabled: true
+	
+network.host: 0.0.0.0
+discovery.type: single-node
+xpack.security.enabled: true
+xpack.security.authc.api_key.enabled: true
 
 
 
 
 	Config Kibana
-		network.host: "0.0.0.0"
-		elasticsearch.username: "kibana_system"
-		xpack.security.enabled
-		xpack.encryptedSavedObjects.encryptionKey: '32 characters string'
+	
+network.host: "0.0.0.0"
+elasticsearch.username: "kibana_system"
+xpack.security.enabled
+xpack.encryptedSavedObjects.encryptionKey: '32 characters string'
 
 =============================================================================================
 
