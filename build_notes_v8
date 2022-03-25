@@ -28,14 +28,17 @@ enabled=0
 autorefresh=1
 type=rpm-md
 
-
-sudo yum install kibana
-
-/usr/share/bin/elasticsearch-create-enrollment-token -s kibana
-
 sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable kibana.service
 
 sudo systemctl start kibana.service
 sudo systemctl stop kibana.service
 
+
+sudo yum install kibana
+
+/usr/share/bin/elasticsearch-create-enrollment-token -s kibana
+/usr/share/bin/kibana-verification-code
+
+
+====cont
