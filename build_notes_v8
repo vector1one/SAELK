@@ -49,6 +49,11 @@ xpack.encryptedSavedObjects.encryptionKey
 xpack.reporting.encryptionKey
 xpack.security.encryptionKey
 
+kibana API
+xpack.encryptedSavedObjects.encryptionKey: '32 characters string'
+
+xpack.encryptedSavedObjects.encryptionKey: 'reverse the polarity on the main deflector dish'
+
 
 
 
