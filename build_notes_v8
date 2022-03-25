@@ -37,8 +37,18 @@ sudo systemctl stop kibana.service
 
 sudo yum install kibana
 
-/usr/share/bin/elasticsearch-create-enrollment-token -s kibana
-/usr/share/bin/kibana-verification-code
+/usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
+/usr/share/kibana/bin/kibana-verification-code
+
+View security dash
+/usr/share/kibana/bin/kibana-encryption-keys command.
+
+will gen the fol keys 
+
+xpack.encryptedSavedObjects.encryptionKey
+xpack.reporting.encryptionKey
+xpack.security.encryptionKey
 
 
-====cont
+
+
