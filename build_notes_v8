@@ -32,7 +32,6 @@ sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable kibana.service
 
 sudo systemctl start kibana.service
-sudo systemctl stop kibana.service
 
 
 sudo yum install kibana
