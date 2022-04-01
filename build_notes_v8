@@ -53,6 +53,7 @@ xpack.encryptedSavedObjects.encryptionKey: '32 characters string'
 
 xpack.encryptedSavedObjects.encryptionKey: 'reverse the polarity on the main deflector dish'
 
-
+reset elastic user password to log into kibana
+usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
 
 
