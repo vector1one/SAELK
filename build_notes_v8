@@ -48,11 +48,6 @@ View security dash
   xpack.reporting.encryptionKey
   xpack.security.encryptionKey
 
-kibana API
-xpack.encryptedSavedObjects.encryptionKey: '32 characters string'
-
-      example
-      xpack.encryptedSavedObjects.encryptionKey: 'reverse the polarity on the main deflector dish'
 
 reset elastic user password to log into kibana
 usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic -i
