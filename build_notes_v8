@@ -40,13 +40,13 @@ sudo yum install kibana
 /usr/share/kibana/bin/kibana-verification-code
 
 View security dash
-/usr/share/kibana/bin/kibana-encryption-keys command.
+/usr/share/kibana/bin/kibana-encryption-keys
 
-will gen the fol keys 
+  will gen the fol keys 
 
-xpack.encryptedSavedObjects.encryptionKey
-xpack.reporting.encryptionKey
-xpack.security.encryptionKey
+  xpack.encryptedSavedObjects.encryptionKey
+  xpack.reporting.encryptionKey
+  xpack.security.encryptionKey
 
 kibana API
 xpack.encryptedSavedObjects.encryptionKey: '32 characters string'
