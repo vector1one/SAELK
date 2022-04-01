@@ -40,7 +40,7 @@ sudo yum install kibana
 /usr/share/kibana/bin/kibana-verification-code
 
 View security dash
-/usr/share/kibana/bin/kibana-encryption-keys
+/usr/share/kibana/bin/kibana-encryption-keys generate
 
   will gen the fol keys 
 
